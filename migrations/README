@@ -1,0 +1,71 @@
+# Flask Ticket System
+
+## Features
+
+- User authentication (register, login, logout)
+- Scalable Role-Based Access Control (RBAC)
+  - Permissions can be easily added or modified
+  - Roles are defined by assigning permissions
+  - Admin: Has all permissions by default
+  - Manager: Customizable permissions for managing groups and tickets
+  - Analyst: Customizable permissions for viewing and editing tickets
+- CRUD operations for tickets, users, and groups
+- Adaptive HTML pages using Bootstrap
+- Automated tests for key functionalities
+
+
+
+## Setup
+
+### Prerequisites
+
+- Python 3.10+
+- Flask
+- Flask-SQLAlchemy
+- Flask-Migrate
+- Flask-Login
+- Pytest
+
+### Installation
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/yourusername/flask-ticket-system.git
+    cd flask-ticket-system
+    ```
+
+2. Create a virtual environment and activate it:
+
+    ```bash
+    python -m venv venv
+    source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+    ```
+
+3. Install the dependencies:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+4. Set up the database:
+
+    ```bash
+    flask db upgrade
+    python -c 'from app.utils import initialize_defaults; initialize_defaults()'
+    ```
+
+5. Run the application:
+
+    ```bash
+    flask run
+    ```
+
+6. Access the application at `http://127.0.0.1:5000`.
+
+## Running Tests
+
+To run the tests, use the following command:
+
+```bash
+pytest

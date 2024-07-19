@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}Add Group{% endblock %}
+{% block content %}
+<h1>Add Group</h1>
+<form method="post">
+    <div class="form-group">
+        <label for="name">Group Name:</label>
+        <input type="text" class="form-control" name="name" id="name" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+{% endblock %}

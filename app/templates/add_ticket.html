@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block title %}Add Ticket{% endblock %}
+{% block content %}
+<h1>Add Ticket</h1>
+<form method="post">
+    <div class="form-group">
+        <label for="name">Ticket Name</label>
+        <input type="text" class="form-control" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+        <label for="status_id">Status</label>
+        <select class="form-control" id="status_id" name="status_id" required>
+            {% for status in statuses %}
+            <option value="{{ status.id }}">{{ status.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="note">Note</label>
+        <textarea class="form-control" id="note" name="note" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="user_id">User (optional)</label>
+        <select class="form-control" id="user_id" name="user_id">
+            <option value="">None</option>
+            {% for user in users %}
+            <option value="{{ user.id }}">{{ user.username }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="group_id">Group (optional)</label>
+        <select class="form-control" id="group_id" name="group_id">
+            <option value="">None</option>
+            {% for group in groups %}
+            <option value="{{ group.id }}">{{ group.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+</form>
+{% endblock %}

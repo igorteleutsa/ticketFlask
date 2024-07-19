@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to the Ticket System</h1>
+    <p class="lead">This is a simple ticket management system using Flask.</p>
+    <hr class="my-4">
+    <p>Use the navigation bar to manage groups and tickets.</p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('group.groups') }}" role="button">Manage Groups</a>
+    <a class="btn btn-secondary btn-lg" href="{{ url_for('ticket.tickets') }}" role="button">Manage Tickets</a>
+</div>
+{% endblock %}

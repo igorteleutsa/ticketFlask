@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+{% block title %}Group Detail{% endblock %}
+{% block content %}
+<h1>Group: {{ group.name }}</h1>
+<p><strong>ID:</strong> {{ group.id }}</p>
+<p><strong>Created at:</strong> {{ group.created_at }}</p>
+<p><strong>Updated at:</strong> {{ group.updated_at }}</p>
+{% endblock %}

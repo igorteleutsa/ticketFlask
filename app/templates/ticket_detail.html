@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block title %}Ticket Detail{% endblock %}
+{% block content %}
+<h1>Ticket: {{ ticket.name }}</h1>
+<p><strong>Status:</strong> {{ ticket.status.name }}</p>
+<p><strong>Note:</strong> {{ ticket.note }}</p>
+{% if ticket.user %}
+<p><strong>User:</strong> {{ ticket.user.username }}</p>
+{% endif %}
+{% if ticket.group %}
+<p><strong>Group:</strong> {{ ticket.group.name }}</p>
+{% endif %}
+<p><strong>Created at:</strong> {{ ticket.created_at }}</p>
+<p><strong>Updated at:</strong> {{ ticket.updated_at }}</p>
+<a href="{{ url_for('ticket.edit_ticket', ticket_id=ticket.id) }}" class="btn btn-warning">Edit</a>
+<form action="{{ url_for('ticket.delete_ticket_view', ticket_id=ticket.id) }}" method="POST" style="display:inline;">
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+{% endblock %}

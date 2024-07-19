@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block title %}User Detail{% endblock %}
+{% block content %}
+<h1>User: {{ user.username }}</h1>
+<p><strong>Email:</strong> {{ user.email }}</p>
+<p><strong>Role:</strong> {{ user.role.name }}</p>
+<p><strong>Groups:</strong></p>
+<ul>
+    {% for group in user.groups %}
+    <li>{{ group.name }}</li>
+    {% endfor %}
+</ul>
+<p><strong>Created at:</strong> {{ user.created_at }}</p>
+<p><strong>Updated at:</strong> {{ user.updated_at }}</p>
+{% if current_user.role.name == 'Admin' %}
+<a href="{{ url_for('user.edit_user', user_id=user.id) }}" class="btn btn-warning">Edit</a>
+<form action="{{ url_for('user.delete_user_view', user_id=user.id) }}" method="POST" style="display:inline;">
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+{% endif %}
+{% endblock %}

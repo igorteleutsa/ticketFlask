@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block title %}Groups{% endblock %}
+{% block content %}
+<h1>Groups</h1>
+<a href="{{ url_for('group.add_group') }}" class="btn btn-primary mb-3">Add Group</a>
+<div class="list-group">
+    {% for group in groups %}
+    <a href="{{ url_for('group.group_detail', group_id=group.id) }}" class="list-group-item list-group-item-action">{{ group.name }}</a>
+    {% endfor %}
+</div>
+{% endblock %}
